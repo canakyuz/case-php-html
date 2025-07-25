@@ -1,0 +1,6 @@
+##SEBO
+
+
+#ilk run için 
+
+# docker compose up --build -d ' çalıştırmak gerekli'
