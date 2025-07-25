@@ -13,6 +13,7 @@ $kullanicilar = [
     ["ad" => "Zeynep", "soyad" => "Kaya", "yas" => 17, "aktif" => true],
     ["ad" => "Mehmet", "soyad" => "Demir", "yas" => 34, "aktif" => false],
     ["ad" => "Emrican", "soyad" => "Adak", "yas" => 24, "aktif" => false],
+    ["ad" => "ata", "soyad" => "ata", "yas" => 24, "aktif" => false],
 ];
 ?>
 
