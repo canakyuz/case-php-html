@@ -7,7 +7,7 @@ $araclar = [
             "yil" => 2021,
             "fiyat" => 350000,
             "durum" => "satilik",
-            "resim" => "assets/focus2021.jpg"
+            "resim" => "assets/focus-1.jpg"
         ],
         [
             "id" => 2,
@@ -16,7 +16,7 @@ $araclar = [
             "yil" => 2020,
             "fiyat" => 620000,
             "durum" => "satildi",
-            "resim" => "assets/bmw-320.2020.jpg"
+            "resim" => "assets/bmw-1.jpg"
         ],
         [
             "id" => 3,
@@ -25,7 +25,7 @@ $araclar = [
             "yil" => 2022,
             "fiyat" => 750000,
             "durum" => "satilik",
-            "resim" => "assets/Mercedes CLA 180.jpg"
+            "resim" => "assets/merso-1.jpg"
         ],
         [
             "id" => 4,
@@ -34,7 +34,7 @@ $araclar = [
             "yil" => 2019,
             "fiyat" => 20000000,
             "durum" => "satilik",
-            "resim" => "assets/araba1.jpg"
+            "resim" => "assets/lambo-1.jpg"
         ]
 ];
 
