@@ -1,0 +1,14 @@
+
+{
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.php": "php"
+  },
+  "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+  "intelephense.environment.includePaths": [
+    "C:\\xampp\\htdocs\\case-php-html\\src"
+  ],
+  "intelephense.files.associations": [
+    "*.php"
+  ]
+}

@@ -1,428 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Araba Galerisi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light p-6">
-    <div class="container">
-    <h1 class="mb-3 text-center">🚗 Araba Galerisi</h1>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Vertical Menu</title>
 
-<?php
-$sekmeler = [
-    [ "id" => "arabalar", "baslik" => "Arabalar", "icerik" => "", "aktif" => true, "disabled" => false ],
-    [ "id" => "motorlar", "baslik" => "Motorlar", "icerik" => "", "aktif" => false, "disabled" => false ],
-    [ "id" => "contact", "baslik" => "İletişim", "icerik" => "", "aktif" => false, "disabled" => false ],
-   // [ "id" => "disabled", "baslik" => "Devre Dışı", "icerik" => "Bu sekme devre dışı.", "aktif" => false, "disabled" => true ], 
-    [ "id" => "profile", "baslik" => "Bilgiler", "icerik" => "", "aktif" => false, "disabled" => false ]
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-
-];
-$araclar = [
-    [
-        "id" => 1,
-        "marka" => "Ford",
-        "model" => "Focus",
-        "yil" => 2021,
-        "fiyat" => 350000,
-        "durum" => "satilik",
-        "resimler" => [
-            "assets/focus-1.jpg",
-            "assets/focus-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "1.5L",
-            "Beygir Gücü" => "123 HP",
-            "Yakıt Tipi" => "Benzin",
-            "Vites" => "Otomatik",
-            "Renk" => "Lacivert"
-        ]
-    ],
-    [
-        "id" => 2,
-        "marka" => "BMW",
-        "model" => "320i",
-        "yil" => 2020,
-        "fiyat" => 620000,
-        "durum" => "satildi",
-        "resimler" => [
-            "assets/bmw-1.jpg",
-            "assets/bmw-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "2.0L",
-            "Beygir Gücü" => "184 HP",
-            "Yakıt Tipi" => "Dizel",
-            "Vites" => "Manuel",
-            "Renk" => "Beyaz"
-        ]
-    ],
-    [
-        "id" => 3,
-        "marka" => "Mercedes",
-        "model" => "CLA 180",
-        "yil" => 2020,
-        "fiyat" => 750000,
-        "durum" => "satildi",
-        "resimler" => [
-            "assets/merso-1.jpg",
-            "assets/merso-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "2.0L",
-            "Beygir Gücü" => "184 HP",
-            "Yakıt Tipi" => "Dizel",
-            "Vites" => "Manuel",
-            "Renk" => "Beyaz"
-        ]
-    ],
-    [
-        "id" => 4,
-        "marka" => "Lamborghini",
-        "model" => "Aventador",
-        "yil" => 2019,
-        "fiyat" => 20000000,
-        "durum" => "satildi",
-        "resimler" => [
-            "assets/lambo-1.jpg",
-            "assets/lambo-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "2.0L",
-            "Beygir Gücü" => "184 HP",
-            "Yakıt Tipi" => "Dizel",
-            "Vites" => "Manuel",
-            "Renk" => "Beyaz"
-        ]
-    ]
-        ];
-
-$motorlar = [
-    [
-        "id" => 1,
-        "marka" => "Honda",
-        "model" => "X",
-        "yil" => 2021,
-        "fiyat" => 350000,
-        "durum" => "satilik",
-        "resimler" => [
-            "assets/honda-1.jpg",
-            "assets/honda-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "1.5L",
-            "Beygir Gücü" => "123 HP",
-            "Yakıt Tipi" => "Benzin",
-            "Vites" => "Otomatik",
-            "Renk" => "Lacivert"
-        ]
-    ],
-    [
-        "id" => 2,
-        "marka" => "BMW",
-        "model" => "Motor",
-        "yil" => 2020,
-        "fiyat" => 620000,
-        "durum" => "satildi",
-        "resimler" => [
-            "assets/bmw-motor-1.jpg",
-            "assets/mbwmotor-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "2.0L",
-            "Beygir Gücü" => "184 HP",
-            "Yakıt Tipi" => "Dizel",
-            "Vites" => "Manuel",
-            "Renk" => "Beyaz"
-        ]
-    ],
-    [
-        "id" => 3,
-        "marka" => "Vespa",
-        "model" => "XXX",
-        "yil" => 2020,
-        "fiyat" => 750000,
-        "durum" => "satildi",
-        "resimler" => [
-            "assets/Vespa-1.jpg",
-            "assets/assets/vespa-2.jpg"
-        ],
-        "ozellikler" => [
-            "Motor Hacmi" => "2.0L",
-            "Beygir Gücü" => "184 HP",
-            "Yakıt Tipi" => "Dizel",
-            "Vites" => "Manuel",
-            "Renk" => "Beyaz"
-        ]
-    ]
-    ];
-?>
-<!-- SEKME BAŞLIKLARI -->
-<ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-    <?php foreach ($sekmeler as $sekme): ?>
-        <?php if ($sekme['id'] !== 'profile'): ?>
-            <li class="nav-item" role="presentation">
-                <button 
-                    class="nav-link <?= $sekme['aktif'] ? 'active' : '' ?>" 
-                    id="<?= $sekme['id'] ?>-tab" 
-                    data-bs-toggle="tab" 
-                    data-bs-target="#<?= $sekme['id'] ?>-tab-pane" 
-                    type="button" 
-                    role="tab" 
-                    aria-controls="<?= $sekme['id'] ?>-tab-pane" 
-                    aria-selected="<?= $sekme['aktif'] ? 'true' : 'false' ?>"
-                    <?= $sekme['disabled'] ? 'disabled' : '' ?>
-                >
-                    <?= $sekme['baslik'] ?>
-                </button>
-            </li>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    <?php
-    // Profile sekmesini en sağa sabitle
-    foreach ($sekmeler as $sekme) {
-        if ($sekme['id'] === 'profile') {
-            ?>
-            <li class="nav-item ms-auto" role="presentation">
-                <button 
-                    class="nav-link <?= $sekme['aktif'] ? 'active' : '' ?>" 
-                    id="<?= $sekme['id'] ?>-tab" 
-                    data-bs-toggle="tab" 
-                    data-bs-target="#<?= $sekme['id'] ?>-tab-pane" 
-                    type="button" 
-                    role="tab" 
-                    aria-controls="<?= $sekme['id'] ?>-tab-pane" 
-                    aria-selected="<?= $sekme['aktif'] ? 'true' : 'false' ?>"
-                    <?= $sekme['disabled'] ? 'disabled' : '' ?>
-                >
-                    <?= $sekme['baslik'] ?>
-                </button>
-            </li>
-            <?php
-        }
+  <style>
+    body {
+      background-color: #dae6ec;
     }
-    ?>
-</ul>
 
-<!-- SEKME İÇERİKLERİ -->
-<div class="tab-content" id="myTabContent">
-    <?php foreach ($sekmeler as $sekme): ?>
-        <div 
-            class="tab-pane fade <?= $sekme['aktif'] ? 'show active' : '' ?>" 
-            id="<?= $sekme['id'] ?>-tab-pane" 
-            role="tabpanel" 
-            aria-labelledby="<?= $sekme['id'] ?>-tab" 
-            tabindex="0"
-        >
-            <div class="p-3">
-                <?php
-                // switch-case ile sekme içeriklerini yönet
-                switch ($sekme['id']) {
-                    case 'arabalar':
-                        $veriListesi = $araclar;
-                        if (!empty($veriListesi)) {
-                            ?>
-                            <div class="row g-4">
-                                <?php foreach ($veriListesi as $item): ?>
-                                    <?php $rozetRenk = ($item["durum"] === "satildi") ? "danger" : "success"; ?>
-                                    <div class="col-md-4">
-                                        <div class="card shadow-sm h-100">
-                                            <!-- Carousel -->
-                                            <div id="carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" class="carousel slide" data-bs-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <?php foreach ($item["resimler"] as $i => $resim): ?>
-                                                        <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-                                                            <img src="<?= $resim ?>" class="d-block w-100" style="height:200px; object-fit:cover;" alt="resim">
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Önceki</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Sonraki</span>
-                                                </button>
-                                            </div>
-                                            <div class="card-body d-flex flex-column justify-content-between">
-                                                <div>
-                                                    <h5 class="card-title"><?= $item["marka"] ?> <?= $item["model"] ?></h5>
-                                                    <p class="card-text">
-                                                        <button type="button" class="btn btn-secondary btn-sm" 
-                                                                data-bs-toggle="modal" 
-                                                                data-bs-target="#modal-<?= $sekme['id'] ?>-<?= $item['id'] ?>">
-                                                            daha fazlası...
-                                                        </button>
-                                                        <div class="modal fade" id="modal-<?= $sekme['id'] ?>-<?= $item['id'] ?>" 
-                                                            tabindex="-1" 
-                                                            aria-labelledby="modalLabel-<?= $sekme['id'] ?>-<?= $item['id'] ?>" 
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5" id="modalLabel-<?= $sekme['id'] ?>-<?= $item['id'] ?>">
-                                                                            <?= $item["marka"] ?> <?= $item["model"] ?>
-                                                                        </h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-                                                                    </div>
-                                                                    <ul class="list-group list-group-flush mt-2">
-                                                                        <?php foreach ($item["ozellikler"] as $ozellikAdi => $deger): ?>
-                                                                            <li class="list-group-item"><strong><?= $ozellikAdi ?>:</strong> <?= $deger ?></li>
-                                                                        <?php endforeach; ?>
-                                                                    </ul>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                                                                        <a href="arac.php?id=<?= $item["id"] ?>" class="btn btn-primary">
-                                                                            Satın Al
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        Yıl: <?= $item["yil"] ?><br>
-                                                        Fiyat: <?= number_format($item["fiyat"], 0, ',', '.') ?> ₺
-                                                    </p>
-                                                    <span class="badge bg-<?= $rozetRenk ?>"><?= strtoupper($item["durum"]) ?></span>
-                                                </div>
-                                                <a href="arac.php?id=<?= $item["id"] ?>" class="btn btn-outline-success btn-sm mt-3">Satın Al</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    case 'motorlar':
-                        $veriListesi = $motorlar;
-                        if (!empty($veriListesi)) {
-                            ?>
-                            <div class="row g-4">
-                                <?php foreach ($veriListesi as $item): ?>
-                                    <?php $rozetRenk = ($item["durum"] === "satildi") ? "danger" : "success"; ?>
-                                    <div class="col-md-4">
-                                        <div class="card shadow-sm h-100">
-                                            <!-- Carousel -->
-                                            <div id="carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" class="carousel slide" data-bs-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <?php foreach ($item["resimler"] as $i => $resim): ?>
-                                                        <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-                                                            <img src="<?= $resim ?>" class="d-block w-100" style="height:200px; object-fit:cover;" alt="resim">
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Önceki</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-<?= $sekme['id'] ?>-<?= $item["id"] ?>" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Sonraki</span>
-                                                </button>
-                                            </div>
-                                            <div class="card-body d-flex flex-column justify-content-between">
-                                                <div>
-                                                    <h5 class="card-title"><?= $item["marka"] ?> <?= $item["model"] ?></h5>
-                                                    <p class="card-text">
-                                                        <button type="button" class="btn btn-secondary btn-sm" 
-                                                                data-bs-toggle="modal" 
-                                                                data-bs-target="#modal-<?= $sekme['id'] ?>-<?= $item['id'] ?>">
-                                                            daha fazlası...
-                                                        </button>
-                                                        <div class="modal fade" id="modal-<?= $sekme['id'] ?>-<?= $item['id'] ?>" 
-                                                            tabindex="-1" 
-                                                            aria-labelledby="modalLabel-<?= $sekme['id'] ?>-<?= $item['id'] ?>" 
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5" id="modalLabel-<?= $sekme['id'] ?>-<?= $item['id'] ?>">
-                                                                            <?= $item["marka"] ?> <?= $item["model"] ?>
-                                                                        </h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-                                                                    </div>
-                                                                    <ul class="list-group list-group-flush mt-2">
-                                                                        <?php foreach ($item["ozellikler"] as $ozellikAdi => $deger): ?>
-                                                                            <li class="list-group-item"><strong><?= $ozellikAdi ?>:</strong> <?= $deger ?></li>
-                                                                        <?php endforeach; ?>
-                                                                    </ul>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                                                                        <a href="motor.php?id=<?= $item["id"] ?>" class="btn btn-primary">
-                                                                            Satın Al
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        Yıl: <?= $item["yil"] ?><br>
-                                                        Fiyat: <?= number_format($item["fiyat"], 0, ',', '.') ?> ₺
-                                                    </p>
-                                                    <span class="badge bg-<?= $rozetRenk ?>"><?= strtoupper($item["durum"]) ?></span>
-                                                </div>
-                                                <a href="motor.php?id=<?= $item["id"] ?>" class="btn btn-outline-success btn-sm mt-3">Satın Al</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    
-                    case 'contact':// İletişim sekmesi
-                        ?>
-                        <div class="form-floating">
-                            <select class="form-select" id="floatingSelect" aria-label="Lütfen mesajın içeriğini seçiniz.">
-                                <option value="1">Soru</option>
-                                <option value="2">Öneri</option>
-                                <option value="3">İlanlar</option>
-                                <option selected>Diğer</option>
-                            </select>
-                            <label for="floatingSelect">Lütfen mesajın içeriğini seçiniz.</label>
-                        </div>
-                        <form class="form-floating mt-2">
-                            <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
-                            <label for="floatingInputValue">Lütfen e-mail giriniz.</label>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </form>
-                        <div class="form-floating mt-2">
-                            <textarea class="form-control <?= $hata ? 'is-invalid' : '' ?>"  placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Mesajınız:</label>
-                        </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                            <button class="btn btn-primary me-md-2" type="submit">Gönder</button>
-                        </div>
-                        <?php
-                        break;
+    .rapor-kutu {
+      animation: yanipSonme 0.2s infinite;
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
 
-                        case 'profile':
-                        // Profil kısmı
-                        ?>
-                        <div class="mt-3">
-                            <h2>Profil Bilgileri</h2>
-                            <p>Ad: John Doe</p>
-                            <p>Email: johndoe@example.com</p>
-                            <p>Profil bilgileri burada gösterilecek.</p>
-                        </div>
-                        <?php
-                        break;
-                }
-                ?>
-            </div>
+    @keyframes yanipSonme {
+      0% {
+        background-color: #ff4d4d;
+      }
+
+      50% {
+        background-color: #b30000;
+      }
+
+      100% {
+        background-color: #ff4d4d;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <?php
+  $days = [
+    [
+      "id" => 1,
+      "day" => "Pazatesi",
+      "weather" => "Kuvvetli GÖk Gürültülü Sağanak Yağışlı",
+      "min-degrees" => 22,
+      "max" => 36,
+      "images" => [
+        "assets/images/havadurumu-icon/gok-gurultulu.png"
+      ]
+    ],
+    [
+      "id" => 2,
+      "day" => "Salı",
+      "weather" => "Kuvvetli GÖk Gürültülü Sağanak Yağışlı",
+      "min-degrees" => 22,
+      "max" => 36,
+      "images" => [
+        "assets/images/havadurumu-icon/gok-gurultulu.png"
+      ]
+    ],
+
+    [
+      "id" => 3,
+      "day" => "Çarşamba",
+      "weather" => "Kuvvetli GÖk Gürültülü Sağanak Yağışlı",
+      "min-degrees" => 22,
+      "max" => 36,
+      "images" => [
+        "assets/images/havadurumu-icon/gok-gurultulu.png"
+      ]
+    ],
+    [
+      "id" => 4,
+      "day" => "Perşembe",
+      "weather" => "Kuvvetli GÖk Gürültülü Sağanak Yağışlı",
+      "min-degrees" => 22,
+      "max" => 36,
+      "images" => [
+        "assets/images/havadurumu-icon/gok-gurultulu.png"
+      ]
+    ],
+    [
+      "id" => 5,
+      "day" => "Cuma",
+      "weather" => "Kuvvetli GÖk Gürültülü Sağanak Yağışlı",
+      "min-degrees" => 22,
+      "max" => 36,
+      "images" => [
+        "assets/images/havadurumu-icon/gok-gurultulu.png"
+      ]
+    ]
+  ];
+  ?>
+
+  <!-- ÜST NAV -->
+  <nav class="navbar">
+    <div class="container-fluid d-flex justify-content-end">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+        <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Disabled</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- LOGOLAR + MENÜ -->
+  <section class="container" style="background-color:white; min-width:100%">
+    <nav class="navbar">
+      <div class="container d-block text-center">
+        <div class="row align-items-center">
+          <div class="col-2 p-2" style="border-right:1px solid #e8eff3;">
+            <img src="assets/csblogo-final.svg" alt="Logo" width="120" height="65" class="d-inline-block align-text-top">
+          </div>
+          <div class="col-2 p-2">
+            <img src="assets/mgmlogo-final.svg" alt="Logo" width="120" height="65" class="d-inline-block align-text-top">
+          </div>
+          <div class="col-8 d-flex justify-content-end gap-4">
+            <div><i class="bi bi-file-earmark-text" style="font-size: 1rem;"></i><br><small>Kurumsal</small></div>
+            <div><i class="bi bi-graph-up" style="font-size: 1rem;"></i><br><small>Tahminler</small></div>
+            <div><i class="bi bi-geo-alt" style="font-size: 1rem;"></i><br><small>Son Durumlar</small></div>
+            <div><i class="bi bi-airplane" style="font-size: 1rem;"></i><br><small>Havacılık</small></div>
+            <div><i class="bi bi-umbrella" style="font-size: 1rem;"></i><br><small>Denizcilik</small></div>
+            <div><i class="bi bi-flower2" style="font-size: 1rem;"></i><br><small>Ziraat</small></div>
+            <div><i class="bi bi-search" style="font-size: 1rem;"></i><br><small>Analizler</small></div>
+            <div><i class="bi bi-envelope" style="font-size: 1rem;"></i><br><small>İletişim</small></div>
+          </div>
         </div>
-    <?php endforeach; ?>
-</div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ANA İÇERİK -->
+  <section class="container">
+    <div class="row pt-3">
+
+      <!-- SOL BÖLÜM -->
+      <div class="col-9">
+        <nav class="navbar d-block mb-3">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </nav>
+
+        <div class="row">
+
+          <div class="col-12">
+            <div class="" style="background-color: #dae6ec;">
+
+              <div class="" style="background-color: #dae6ec;">
+                <?php
+                echo date("d.m.Y"); // 31.07.2025
+                echo "<br>";
+                echo date("l");
+                echo "<br>";
+
+                echo date("H:i:s"); // 17:42:08
+
+                // Thursday (günün İngilizce adı)
+                ?>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 pt-4">
+            <img src="assets/images/havadurumu-icon/hava-durumu-grafik.PNG" class="d-block w-100" alt="...">
+
+            <!-- KARTLAR -->
+            <div class="row mt-3">
+              <?php foreach ($days as $day): ?>
+                <div class="ms-0 me-auto col-sm mb-3">
+                  <div class="card">
+                    <h5 class="m-auto card-title"><?= $day['day']; ?></h5>
+                    <hr>
+                    <img src="<?= $day['images'][0]; ?>" class="card-img-top" alt="hava">
+                    <div class="card-body">
+                      <hr>
+                      <p class="card-text"><?= $day['weather']; ?></p>
+                      <p class="card-text">
+                        <strong>Min:</strong> <?= $day['min-degrees']; ?>°C<br>
+                        <strong>Max:</strong> <?= $day['max']; ?>°C
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
 
 
 
 
-</div> <!-- .container -->
+          </div>
+        </div>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+      <!-- SAĞ BÖLÜM -->
+      <div class="col-3">
+        <div class="row">
+          <!-- adamlar1 -->
+          <div class="col-12 mb-3">
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="assets/images/yk/muratkurum.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">MURAT KURUM</h5>
+                    <p class="card-text">Bakan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- adamlar2 -->
+          <div class="col-12 mb-3">
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="assets/images/yk/volkanmutlucoskun.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">VOLKAN MUTLU</h5>
+                    <p class="card-text">Bkn Yrd.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- tr yesil harita -->
+          <div class="col-12 mb-3">
+            <div class="btn-group d-flex" role="group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio1">Bugün</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio3">Yarın</label>
+            </div>
+            <img src="assets/images/trharita/yesil-tr-map.jpg" class="pt-3 card-img-top" alt="...">
+          </div>
+
+          <!-- RAPOR ALANI 1-->
+          <div class="col-12">
+            <div class="d-flex border" style=" background-color: #f8f9fa;">
+              <div class="d-flex align-items-center">
+                <svg class="ms-3" width="16" height="16" fill="orange" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.3,4.4L1.2,53C-2.2,58.9,2.6,66.2,8.6,66.2H65.6..." />
+                </svg>
+              </div>
+              <div class="p-2 ms-4">
+                Deprem Bölgesi Hava Tahmini
+              </div>
+            </div>
+          </div>
+          <!-- RAPOR ALANI 2-->
+          <div class="col-12">
+            <div class="d-flex border" style=" background-color: #f8f9fa;">
+              <div class="d-flex align-items-center">
+                <svg class="ms-3" width="16" height="16" fill="orange" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.3,4.4L1.2,53C-2.2,58.9,2.6,66.2,8.6,66.2H65.6..." />
+                </svg>
+              </div>
+              <div class="p-2 ms-4">
+                Kuvvetli Meterolojik Hadiseler için Alınacak Tedbirler
+              </div>
+            </div>
+          </div>
+
+          <!-- RAPOR ALANI uyarı -->
+          <div class="col-12">
+            <div class="d-flex border" style=" background-color: #f8f9fa;">
+              <div class="p-2 rapor-kutu">
+                !<br>RAPOR
+              </div>
+              <div class="p-2">
+                Hava Sıcaklıkları Artacak!
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ALT BÖLÜM -->
+  <section class="container" style="background-color: #1DB6D1; min-width:100%; border-bottom: 6px solid #278eb0;">
+    <nav class="navbar">
+      <div class="container d-block text-center">
+
+        <div class="row align-items-center">
+          <div class="col-12 d-flex justify-content-around justify-content-center">
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+            <a href="#">
+              <p class="card-text">Son Gözlemler</p>
+            </a>
+          </div>
+        </div>
+    </nav>
+  </section>
 </body>
+
 </html>
