@@ -1,49 +1,16 @@
 <?php
-$araclar = [
-    [
-            "id" => 1,
-            "marka" => "Ford",
-            "model" => "Focus",
-            "yil" => 2021,
-            "fiyat" => 350000,
-            "durum" => "satilik",
-            "resim" => "assets/focus-1.jpg"
-        ],
-        [
-            "id" => 2,
-            "marka" => "BMW",
-            "model" => "320i",
-            "yil" => 2020,
-            "fiyat" => 620000,
-            "durum" => "satildi",
-            "resim" => "assets/bmw-1.jpg"
-        ],
-        [
-            "id" => 3,
-            "marka" => "Mercedes",
-            "model" => "CLA 180",
-            "yil" => 2022,
-            "fiyat" => 750000,
-            "durum" => "satilik",
-            "resim" => "assets/merso-1.jpg"
-        ],
-        [
-            "id" => 4,
-            "marka" => "Lamborghini",
-            "model" => "Aventador",
-            "yil" => 2019,
-            "fiyat" => 20000000,
-            "durum" => "satilik",
-            "resim" => "assets/lambo-1.jpg"
-        ]
+$motorlar = [
+    [ "id" => 1, "marka" => "Honda", "model" => "X", "yil" => 2021, "fiyat" => 350000, "durum" => "satilik", "resim" => "assets/honda-1.jpg" ],
+    [ "id" => 2, "marka" => "BMW", "model" => "Motor", "yil" => 2020, "fiyat" => 620000, "durum" => "satildi", "resim" => "assets/mbw-motor-1.jpg" ],
+    [ "id" => 3, "marka" => "Vespa", "model" => "XXX", "yil" => 2022, "fiyat" => 750000, "durum" => "satilik", "resim" => "assets/Vespa-1.jpg" ]
 ];
 
 $id = $_GET["id"] ?? null;
 $secilenArac = null;
 
-foreach ($araclar as $arac) {
-    if ($arac["id"] == $id) {
-        $secilenArac = $arac;
+foreach ($motorlar as $motor) {
+    if ($motor["id"] == $id) {
+        $secilenArac = $motor;
         break;
     }
 }
