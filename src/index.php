@@ -1,43 +1,65 @@
 <!doctype html>
 <html lang="tr">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap Vertical Menu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Vertical Menu</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    body {
-      background-color: #dae6ec;
+
+<style>
+  body {
+    background-color: #dae6ec;
+  }
+
+  .rapor-kutu {
+    animation: yanipSonme 1s infinite;
+    background-color: #b30000;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  @keyframes yanipSonme {
+    0% {
+      background-color: #ff4d4d;
     }
 
-    .rapor-kutu {
-      animation: yanipSonme 1s infinite;
+    50% {
       background-color: #b30000;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-      font-size: 0.8rem;
     }
 
-    @keyframes yanipSonme {
-      0% {
-        background-color: #ff4d4d;
-      }
-
-      50% {
-        background-color: #b30000;
-      }
-
-      100% {
-        background-color: #ff4d4d;
-      }
+    100% {
+      background-color: #ff4d4d;
     }
-  </style>
+  }
+  <style>
+.city-header {
+  background: linear-gradient(90deg, #d0eaff, #ffffff);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: fit-content;
+  margin: 20px auto;
+}
+.city-header i {
+  color: #007bff;
+  font-size: 24px;
+}
+
+</style>
 </head>
 
 <body>
@@ -60,7 +82,7 @@
       "min-degrees" => 22,
       "max" => 36,
       "images" => [
-        "assets/images/havadurumu-icon/parcalı-bulutlu.png"
+        "assets/images/havadurumu-icon/parcalıbulut.png"
       ]
     ],
 
@@ -71,7 +93,7 @@
       "min-degrees" => 22,
       "max" => 36,
       "images" => [
-        "assets/images/havadurumu-icon/parcalı-bulutlu.png"
+        "assets/images/havadurumu-icon/parcalıbulut.png"
       ]
     ],
     [
@@ -91,8 +113,62 @@
       "min-degrees" => 22,
       "max" => 36,
       "images" => [
-        "assets/images/havadurumu-icon/parcalı-bulutlu.png"
+        "assets/images/havadurumu-icon/parcalıbulut.png"
       ]
+    ]
+  ];
+
+  $icons = [
+    [
+      "id" => 1,
+      "icon" => "bi bi-file-earmark-text",
+      "title" => "Kurumsal",
+      "links" => "https://www.mgm.gov.tr/kurumsal/birimler.aspx"
+    ],
+    [
+      "id" => 2,
+      "icon" => "bi bi-graph-up",
+      "title" => "Tahminler",
+      "links" => "https://www.mgm.gov.tr/tahmin/gunluk-tahmin.aspx"
+
+    ],
+    [
+      "id" => 3,
+      "icon" => "bi bi-geo-alt",
+      "title" => "Son Durumlar",
+      "links" => "https://www.mgm.gov.tr/sondurum/turkiye.aspx"
+    ],
+    [
+      "id" => 4,
+      "icon" => "bi bi-airplane",
+      "title" => "Havacılık",
+      "links" => "https://hezarfen.mgm.gov.tr"
+    ],
+    [
+      "id" => 5,
+      "icon" => "bi bi-umbrella",
+      "title" => "Denizcilik",
+      "links" => "https://pirireis.mgm.gov.tr/tahmin-raporlari/ucgunluk-tahmin"
+    ],
+    [
+      "id" => 6,
+      "icon" => "bi bi-flower2",
+      "title" => "Ziraat",
+      "links" => "https://www.mgm.gov.tr/tarim/zirai-don-uyari-sistemi-harita.aspx"
+    ],
+    [
+      "id" => 7,
+      "icon" => "bi bi-search",
+      "title" => "Analizler",
+      "links" => "https://www.mgm.gov.tr/veridegerlendirme/sicaklik-analizi.aspx"
+
+
+    ],
+    [
+      "id" => 8,
+      "icon" => "bi bi-envelope",
+      "title" => "İletişim",
+      "links" => "https://www.mgm.gov.tr/site/iletisim.aspx"
     ]
   ];
   ?>
@@ -101,10 +177,11 @@
   <nav class="navbar">
     <div class="container-fluid d-flex justify-content-end">
       <ul class="nav">
-        <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-        <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Disabled</a></li>
+        <li class="nav-item"><a class="nav-link active" href="https://www.facebook.com/06Meteoroloji"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href=""><i class="fa-brands fa-square-x-twitter"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/ata.krb/"><i class="fa-brands fa-instagram"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fa-brands fa-square-linkedin"></i></a></li>
+        <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">ATA KARABULUT</a></li>
       </ul>
     </div>
   </nav>
@@ -120,18 +197,18 @@
           <div class="col-2 p-2">
             <a href="https://www.mgm.gov.tr" style="text-decoration: none;"><img src="assets/mgmlogo-final.svg" alt="Logo" width="120" height="65" class="d-inline-block align-text-top"></a>
           </div>
+
           <div class="col-8 d-flex justify-content-end gap-4">
-            <a href="https://www.mgm.gov.tr/kurumsal/birimler.aspx" style="text-decoration: none;"><div><i class="bi bi-file-earmark-text" style="font-size: 1rem; "></i><br><small>Kurumsal</small></div></a>
-            <a href="https://www.mgm.gov.tr/tahmin/gunluk-tahmin.aspx" style="text-decoration: none;"><div><i class="bi bi-graph-up" style="font-size: 1rem;"></i><br><small>Tahminler</small></div></a>
-            <a href="https://www.mgm.gov.tr/sondurum/turkiye.aspx" style="text-decoration: none;"><div><i class="bi bi-geo-alt" style="font-size: 1rem;"></i><br><small>Son Durumlar</small></div></a>
-            <a href="https://hezarfen.mgm.gov.tr" style="text-decoration: none;"><div><i class="bi bi-airplane" style="font-size: 1rem;"></i><br><small>Havacılık</small></div></a>
-            <a href="https://pirireis.mgm.gov.tr/tahmin-raporlari/ucgunluk-tahmin" style="text-decoration: none;"><div><i class="bi bi-umbrella" style="font-size: 1rem;"></i><br><small>Denizcilik</small></div></a>
-            <a href="https://www.mgm.gov.tr/tarim/zirai-don-uyari-sistemi-harita.aspx" style="text-decoration: none;"><div><i class="bi bi-flower2" style="font-size: 1rem;"></i><br><small>Ziraat</small></div></a>
-            <a href="https://www.mgm.gov.tr/veridegerlendirme/sicaklik-analizi.aspx" style="text-decoration: none;"><div><i class="bi bi-search" style="font-size: 1rem;"></i><br><small>Analizler</small></div></a>
-            <a href="https://www.mgm.gov.tr/site/iletisim.aspx" style="text-decoration: none;"><div><i class="bi bi-envelope" style="font-size: 1rem;"></i><br><small>İletişim</small></div></a>
+            <?php foreach ($icons as $icon): ?>
+              <a href="<?= $icon['links'] ?>" style="text-decoration: none;">
+                <div>
+                  <i class="<?= $icon['icon'] ?>" style="font-size: 1rem;"></i><br>
+                  <small><?= $icon['title'] ?></small>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
         </div>
-      </div>
     </nav>
   </section>
 
@@ -154,15 +231,12 @@
             <div class="" style="background-color: #dae6ec;">
 
               <div class="" style="background-color: #dae6ec;">
-                <?php
-                echo date("d.m.Y"); // 31.07.2025
-                echo "<br>";
-                echo date("l");
-                echo "<br>";
-                echo date("H:i:s"); // 17:42:08
+<?php
+echo '<div style="font-family: Arial; font-size: 12px; color: dark;">' . date("d.m.Y") . '</div>';
+echo '<div style="font-weight: bold; font-size: 35px ;color: darkgray;">' . date("l") . '</div>';
+echo '<div style="font-size: 16px; color: darkgray;">' . date("H:i:s") . '</div>';
+?>
 
-                // Thursday (günün İngilizce adı)
-                ?>
               </div>
             </div>
           </div>
@@ -189,10 +263,6 @@
                 </div>
               <?php endforeach; ?>
             </div>
-
-
-
-
           </div>
         </div>
       </div>
@@ -202,45 +272,49 @@
       <div class="col-3">
         <div class="row">
           <!-- adamlar1 -->
-          <a href="https://www.mgm.gov.tr/site/bakan.aspx" style="text-decoration: none;"><div class="col-12 mb-3">
-            <div class="card">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="assets/images/yk/muratkurum.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">MURAT KURUM</h5>
-                    <p class="card-text">Bakan</p>
+          <a href="https://www.mgm.gov.tr/site/bakan.aspx" style="text-decoration: none;">
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/images/yk/muratkurum.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">MURAT KURUM</h5>
+                      <p class="card-text">Bakan</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div></a>
+          </a>
 
           <!-- adamlar2 -->
-           <a href="https://www.mgm.gov.tr/site/genelmudur.aspx" style="text-decoration: none;"><div class="col-12 mb-3">
-            <div class="card">
-              <div class="row g-0">
-                <div class="col-md-4">
-                <img src="assets/images/yk/volkanmutlucoskun.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">VOLKAN MUTLU</h5>
-                    <p class="card-text">Bkn Yrd.</p>
+          <a href="https://www.mgm.gov.tr/site/genelmudur.aspx" style="text-decoration: none;">
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/images/yk/volkanmutlucoskun.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">VOLKAN MUTLU</h5>
+                      <p class="card-text">Bkn Yrd.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div></a>
-          
+          </a>
+
 
           <!-- tr yesil harita -->
           <div class="col-12 mb-3">
             <div class="btn-group d-flex" role="group">
               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-              <label class="btn btn-text-light btn-outline-info"for="btnradio1">Bugün</label>
+              <label class="btn btn-text-light btn-outline-info" for="btnradio1">Bugün</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
               <label class="btn btn-text-light btn-outline-info" for="btnradio3">Yarın</label>
@@ -297,7 +371,7 @@
       <div class="container d-block text-center">
 
         <div class="row align-items-center">
-          <div class="col-12 d-flex justify-content-around justify-content-center" >
+          <div class="col-12 d-flex justify-content-around justify-content-center">
             <a href="https://www.mgm.gov.tr/sondurum/turkiye.aspx" style="text-decoration: none;">
               <h5 class="card-text text-light">Son Gözlemler</h5>
             </a>
@@ -313,6 +387,7 @@
             <a href="https://mevbis.mgm.gov.tr/mevbis/ui/index.html#/Workspace" style="text-decoration: none;">
               <h5 class="card-text text-light">MEVBİS</h5>
             </a>
+
             <a href="https://www.mgm.gov.tr/veridegerlendirme/il-ve-ilceler-istatistik.aspx" style="text-decoration: none;">
               <h5 class="card-text text-light">Resmi İklim İstatistikleri</h5>
             </a>
@@ -320,6 +395,22 @@
         </div>
     </nav>
   </section>
-</body>
 
+  asd
+</body>
+<footer>
+  <section class="container-fluid text-center" style="background-color: #1DB6D1; min-width:100%; border-top: 6px solid #278eb0;">
+    <nav class="navbar">
+    <div class="container d-block text-center">
+      <div class="row align-items-center">
+        <div class="col-12 d-flex justify-content-center">
+          <a href="https://www.instagram.com/ata.krb/" style="text-decoration: none;">
+            <h5 class="card-text text-light">Tüm hakları saklıdır: Ata KARABULUT</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+    </nav>
+  </section>
+</footer>
 </html>
