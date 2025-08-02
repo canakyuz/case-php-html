@@ -3,7 +3,9 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Vertical Menu</title>
+<link rel="icon" href="assets/images/havadurumu-icon/mgmlogo-top.jpg" type="image/png">
+
+<title>MGM Ankara için havadurumu</title>
 
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -170,6 +172,35 @@
       "title" => "İletişim",
       "links" => "https://www.mgm.gov.tr/site/iletisim.aspx"
     ]
+  ];
+
+    $bottom_menu = [
+      [
+        "id" => 1,
+        "title" => "Son Gözlemler",
+        "links" => "https://www.mgm.gov.tr/sondurum/turkiye.aspx"
+      ],
+      [
+        "id" => 2,
+        "title" => "5 GÜnlük Tahmin",
+        "links" => "https://www.mgm.gov.tr/tahmin/turkiye.aspx"
+
+      ],
+      [
+        "id" => 3,
+        "title" => "Uydu Görüntüleri",
+        "links" => "https://www.mgm.gov.tr/sondurum/uydu.aspx"
+      ],
+      [
+        "id" => 4,
+        "title" => "MEVBİS",
+        "links" => "https://www.mgm.gov.tr/sondurum/radar.aspx"
+      ],
+      [
+        "id" => 5,
+        "title" => "Resmi İklim İstatislikleri",
+        "links" => "https://www.mgm.gov.tr/veridegerlendirme/il-ve-ilceler-istatistik.aspx"
+      ]
   ];
   ?>
 
@@ -369,35 +400,27 @@ echo '<div style="font-size: 16px; color: darkgray;">' . date("H:i:s") . '</div>
   <section class="container" style="background-color: #1DB6D1; min-width:100%; border-bottom: 6px solid #278eb0;">
     <nav class="navbar">
       <div class="container d-block text-center">
-
         <div class="row align-items-center">
           <div class="col-12 d-flex justify-content-around justify-content-center">
-            <a href="https://www.mgm.gov.tr/sondurum/turkiye.aspx" style="text-decoration: none;">
-              <h5 class="card-text text-light">Son Gözlemler</h5>
-            </a>
-            <a href="https://www.mgm.gov.tr/tahmin/turkiye.aspx" style="text-decoration: none;">
-              <h5 class="card-text text-light">5 Günlük Tahmin</h5>
-            </a>
-            <a href="https://www.mgm.gov.tr/sondurum/uydu.aspx" style="text-decoration: none;">
-              <h5 class="card-text text-light">Uydu Görüntüleri</h5>
-            </a>
-            <a href="https://www.mgm.gov.tr/sondurum/radar.aspx" style="text-decoration: none;">
-              <h5 class="card-text text-light">Radar Görüntüleri</h5>
-            </a>
-            <a href="https://mevbis.mgm.gov.tr/mevbis/ui/index.html#/Workspace" style="text-decoration: none;">
-              <h5 class="card-text text-light">MEVBİS</h5>
-            </a>
-
-            <a href="https://www.mgm.gov.tr/veridegerlendirme/il-ve-ilceler-istatistik.aspx" style="text-decoration: none;">
-              <h5 class="card-text text-light">Resmi İklim İstatistikleri</h5>
-            </a>
+            <?php foreach ($bottom_menu as $bottom_menu_id): ?>
+                <a href="<?= $bottom_menu_id['links']; ?>" style="text-decoration: none;">
+                  <h5 class="card-text text-light"><?= $bottom_menu_id['title']; ?></h5>
+                </a>
+              <?php endforeach ?>
           </div>
         </div>
+      </div>
     </nav>
   </section>
-
   asd
+
+
+
+
 </body>
+
+
+
 <footer>
   <section class="container-fluid text-center" style="background-color: #1DB6D1; min-width:100%; border-top: 6px solid #278eb0;">
     <nav class="navbar">
