@@ -73,9 +73,7 @@
       "weather" => "Kuvvetli Gök Gürültülü Sağanak Yağışlı",
       "min-degrees" => 22,
       "max" => 36,
-      "images" => [
-        "assets/images/havadurumu-icon/gok-gurultulu.png"
-      ]
+      "icons" => "fa-solid fa-cloud-bolt"
     ],
     [
       "id" => 2,
@@ -83,20 +81,15 @@
       "weather" => "Parçalı Bulutlu",
       "min-degrees" => 22,
       "max" => 36,
-      "images" => [
-        "assets/images/havadurumu-icon/parcalıbulut.png"
-      ]
+      "icons" => "fa-solid fa-cloud"
     ],
-
     [
       "id" => 3,
       "day" => "Çarşamba",
       "weather" => "Parçalı Bulutlu",
       "min-degrees" => 22,
       "max" => 36,
-      "images" => [
-        "assets/images/havadurumu-icon/parcalıbulut.png"
-      ]
+      "icons" => "fa-solid fa-cloud"
     ],
     [
       "id" => 4,
@@ -104,9 +97,7 @@
       "weather" => "Kuvvetli Gök Gürültülü Sağanak Yağışlı",
       "min-degrees" => 22,
       "max" => 36,
-      "images" => [
-        "assets/images/havadurumu-icon/gok-gurultulu.png"
-      ]
+      "icons" => "fa-solid fa-cloud-bolt"
     ],
     [
       "id" => 5,
@@ -114,16 +105,14 @@
       "weather" => "Parçalı Bulutlu",
       "min-degrees" => 22,
       "max" => 36,
-      "images" => [
-        "assets/images/havadurumu-icon/parcalıbulut.png"
-      ]
+      "icons" => "fa-solid fa-cloud"
     ]
   ];
 
   $icons = [
     [
       "id" => 1,
-      "icon" => "bi bi-file-earmark-text",
+      "icon" => "fa-thin fa-cloud-bolt",
       "title" => "Kurumsal",
       "links" => "https://www.mgm.gov.tr/kurumsal/birimler.aspx"
     ],
@@ -279,13 +268,14 @@ echo '<div style="font-size: 16px; color: darkgray;">' . date("H:i:s") . '</div>
             <div class="row mt-3">
               <?php foreach ($days as $day): ?>
                 <div class="ms-0 me-auto col-sm mb-3">
-                  <div class="card">
-                    <h5 class="m-auto  card-title"><?= $day['day']; ?></h5>
+                  <div class="card h-100 d-flex flex-column">
+                    <h5 class="m-auto pt-3 card-title"><?= $day['day']; ?></h5>
                     <hr>
-                    <img src="<?= $day['images'][0]; ?>" class="card-img-top" alt="hava">
+                      <i class="<?= $day['icons'] ?>" style="display:block; text-align:center; font-size: 2rem;"></i>
+                      <hr>
                     <div class="card-body">
                       <p class="card-text"><?= $day['weather']; ?></p>
-                      <p class="card-text">
+                      <p class="card-text d-flex flex-column mb-auto">
                         <strong>Min:</strong> <?= $day['min-degrees']; ?>°C<br>
                         <strong>Max:</strong> <?= $day['max']; ?>°C
                       </p>
