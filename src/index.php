@@ -8,6 +8,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <style>
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+  </style>
+
 </head>
 
 <body style="background-color:#dae6ec">
@@ -56,38 +64,49 @@
 
 
 
-
-
   <nav class="navbar bg-body-tertiary">
     <div class="row d-flex   justify-content-end  align-items-center">
 
-      <spadivn class="col-3 ms-5 ">
+      <span class="col-2 m ">
         <a class="navbar-brand" href="https://www.csb.gov.tr/">
           <img src="img/csblogo-final.svg" alt="Bootstrap" width="114" height="72">
         </a>
-      </div>
+      </span>
+    </div>
 
-      <div class="col-3 me-5">
-        <a class="navbar-brand" href="https://www.mgm.gov.tr/">
-          <img src="img/mgmlogo-final (2).svg" alt="Bootstrap" width="108" height="69">
-        </a>
-      </div>
+    <div class="col-2 ms-5">
+      <a class="navbar-brand" href="https://www.mgm.gov.tr/">
+        <img src="img/mgmlogo-final (2).svg" alt="Bootstrap" width="108" height="69">
+      </a>
+    </div>
 
-      <div class="col-6">
-        <ul class="navbar icons  d-flex justify-content-end" style="width: 800px; ">
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-book"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-chart-column"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-caret-down"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-plane"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-sailboat"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-wheat-awn"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-droplet"></i></a></li>
-        <li class="ms-auto"><a href=""><i class="fa-solid fa-envelope"></i></a></li>
-        </ul>
+    <div class="col-8">
+      <?php
+      $menuItems = [
+        ["icon" => "fa-book", "label" => "Kurumsal", ],
+        ["icon" => "fa-chart-column", "label" => "Tahminler", ],
+        ["icon" => "fa-caret-down", "label" => "Son Durumlar", ],
+        ["icon" => "fa-plane", "label" => "Havacılık", ],
+        ["icon" => "fa-sailboat", "label" => "Denizcilik",],
+        ["icon" => "fa-wheat-awn", "label" => "Ziraat", ],
+        ["icon" => "fa-droplet", "label" => "Analizler", ],
+        ["icon" => "fa-envelope", "label" => "İletişim", ],
+      ];
+      ?>
+
+      <div class="row d-flex   justify-content-evenly ">
+        <div class="navbar icons font-weight-bold text-center justify-items-center" style="list-style:none; padding-left:0; font-size:larger;">
+          <?php foreach ($menuItems as $item): ?>
+            <div class="col" style="text-align:center;">
+                <i class="fa-solid <?= $item['icon'] ?>"></i>
+              </a><br>
+              <?= $item['label'] ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>
-</nav>
-
+  </nav>
 
 
   <div class="container">
@@ -102,7 +121,7 @@
         </div>
 
 
-        <div class=card style=background-color:#dae6ec;>
+        <div class=card style=background-color:#dae6ec>
           <div class="card-body">
             <p class="card-text">
             <div>05 Ağustos - 12.54</div>
@@ -131,17 +150,17 @@
 
           foreach ($gunler as $gun): ?>
             <div class="col mb-4">
-              <div class="card " >
+              <div class="card ">
                 <h5 class="card-title  text-center"><?= $gun['gun'] ?></h5>
                 <img src="<?= $gun['ikon'] ?>" class="mx-auto d-block" style="width: 100px;">
                 <div class="card-body">
                   <div class="row">
                     <p class="card-text  text-center">Sıcak</p>
                     <div class="col-6">
-                      <h5>"<?= $gun['min'] ?>"</h5>
+                      <h5><?= $gun['min'] ?>°C</h5>
                     </div>
                     <div class="col-6">
-                      <h5>"<?= $gun['max'] ?>"</h5>
+                      <h5><?= $gun['max'] ?>°C</h5>
                     </div>
                   </div>
 
@@ -158,7 +177,7 @@
 
         <div class="row">
           <div class="col">
-            <div class="card m-2" style="max-width: 540px;">
+            <div class="card m-2" style="width:111%;">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img src="img/bakan-kurum.jpg" class="img-fluid rounded-start" alt="...">
@@ -172,7 +191,7 @@
               </div>
             </div>
 
-            <div class="card m-2" style="max-width: 540px;">
+            <div class="card m-2" style="width: 110%;">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img src="img/volkanmutlucoskun5.jpg" class="img-fluid rounded-start  width:200px;" alt="...">
