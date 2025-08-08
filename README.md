@@ -6,3 +6,4 @@
 # docker compose up --build -d ' çalıştırmak gerekli'
 
 berkay branch olusturuldu
+commit atildi
